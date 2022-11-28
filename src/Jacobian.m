@@ -22,7 +22,7 @@ if strcmp(Method,'FiniteDifference')
     for ii = 1:n
         xplus = x;
         xplus(ii) =  x(ii) + epsilon;
-        J(:, ii) = (feval(f, xplus)-f0).*epsilon_inv;
+        J(:, ii) = (feval(f, xplus)-f0)*epsilon_inv;
     end
 %
 % Complex-Step Derivative Approximation (CSDA)
@@ -49,7 +49,7 @@ elseif strcmp(Method,'CFDM')
 %
 % Symbolic computation
 %
-elseif strcmp(Method,'Analytic')
+elseif strcmp(Method,'Symbolic')
     syms xs [n 1]
     fs = feval(f,xs);
     fx = jacobian(fs,xs);
